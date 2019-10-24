@@ -1,8 +1,32 @@
 <html>
 <body>
-Hello World!
+<button onclick="myFunction()">Click me</button>
 <script>
+function myFunction() {
+  navigator.bluetooth.requestLEScan({
+    filters: [{manufacturerData: {0x004C: {dataPrefix: new Uint8Array([
+      0x02, 0x15, // iBeacon identifier.
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  // My beacon UUID.
+    ])}}}],
+    keepRepeatedDevices: true
+  }).then(() => {
+    navigator.bluetooth.addEventListener('advertisementreceived', event => {
+      let appleData = event.manufacturerData.get(0x004C);
+      if (appleData.byteLength != 23) {
+        // Isn’t an iBeacon.
+        return;
+      }
+      let major = appleData.getUint16(18, false);
+      let minor = appleData.getUint16(20, false);
+      let txPowerAt1m = -appleData.getInt8(22);
+      let pathLossVs1m = txPowerAt1m - event.rssi;
 
+      recordNearbyBeacon(major, minor, pathLossVs1m);
+    });
+  })
+}
+                                                         
+                                                         
 
 
 </script>
