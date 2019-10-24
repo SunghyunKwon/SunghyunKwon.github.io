@@ -23,7 +23,7 @@ function interpretIBeacon(event) {
 }
   
 async function onButtonClick() {  
-  var known_service = "0x004C";
+  var known_service = "4e754731-203a-45ae-9b84-ce44ce585f7e";
   return navigator.bluetooth.requestDevice({
     filters: [{services: [known_service]}]
   }).then(device => {
