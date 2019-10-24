@@ -5,6 +5,7 @@
 async function onButtonClick() {  
   let options = {};
   options.acceptAllAdvertisements = true;
+  options.filters = [{manufacturerData: 0x004C}];
 
   try {
     console.log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
