@@ -5,7 +5,15 @@
 async function onButtonClick() {  
   let options = {};
   //options.acceptAllAdvertisements = true;
-  options.filters = [{manufacturerData: 0x004C}];
+  options.filters = [{
+    manufacturerData: 
+    {
+      0x004C: 
+      {
+        dataPrefix: new Uint8Array([0x02, 0x15])
+      }
+    }
+  }];
 
   try {
     console.log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
