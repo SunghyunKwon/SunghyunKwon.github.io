@@ -25,7 +25,8 @@ function interpretIBeacon(event) {
 async function onButtonClick() {  
   var known_service = "4e754731-203a-45ae-9b84-ce44ce585f7e";
   return navigator.bluetooth.requestLEScan({
-    filters: [{manufacturerData: {0x004C: { dataPrefix: new Uint8Array([ 0x02, 0x15 ]) }}}]
+    filters: [{manufacturerData: {0x004C: { dataPrefix: new Uint8Array([ 0x02, 0x15 ]) }}}],
+    keepRepeatedDevices: true
   }).then(() => {
     navigator.bluetooth.addEventListener('advertisementreceived', interpretIBeacon);
   });
