@@ -23,9 +23,9 @@ function interpretIBeacon(event) {
 }
   
 async function onButtonClick() {  
-  var known_service = "A service in the iBeacon’s GATT server";
+  var known_service = "a9e9b1ecfd234a7494f61cc54e51064b";
   return navigator.bluetooth.requestDevice({
-    filters: [{services: [known_service]}]
+    filters: [{uuid: [known_service]}]
   }).then(device => {
     device.watchAdvertisements();
     device.addEventListener('advertisementreceived', interpretIBeacon);
