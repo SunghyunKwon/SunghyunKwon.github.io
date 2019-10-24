@@ -26,8 +26,9 @@ async function onButtonClick() {
   var known_service = "4e754731-203a-45ae-9b84-ce44ce585f7e";
   return navigator.bluetooth.requestLEScan({
     acceptAllAdvertisements: true
-  }).then(() => {
-    navigator.bluetooth.addEventListener('advertisementreceived', interpretIBeacon);
+  }).then(device => {
+    console.log(device);
+    device.addEventListener('advertisementreceived', interpretIBeacon);
   });
   
   let options = {};
