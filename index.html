@@ -28,6 +28,7 @@ async function onButtonClick() {
     acceptAllDevices: true
   }).then(device => {
     console.log(device);
+   device.watchAdvertisements();
     device.addEventListener('advertisementreceived', interpretIBeacon);
   });
   
