@@ -24,11 +24,10 @@ function interpretIBeacon(event) {
   
 async function onButtonClick() {  
   var known_service = "4e754731-203a-45ae-9b84-ce44ce585f7e";
-  return navigator.bluetooth.requestDevice({
-    filters: [{services: [known_service]}]
-  }).then(device => {
-    device.watchAdvertisements();
-    device.addEventListener('advertisementreceived', interpretIBeacon);
+  return navigator.bluetooth.requestLEScan({
+    filters: [{manufacturerData: {0x004C: { dataPrefix: new Uint8Array([ 0x02, 0x15 ]) }}}]
+  }).then(() => {
+    navigator.bluetooth.addEventListener('advertisementreceived', interpretIBeacon);
   });
   
   let options = {};
