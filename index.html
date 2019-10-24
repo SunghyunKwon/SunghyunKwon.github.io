@@ -23,9 +23,9 @@ function interpretIBeacon(event) {
 }
   
 async function onButtonClick() {  
-  var known_service = "a9e9b1ecfd234a7494f61cc54e51064b";
+  var known_service = "0x004C";
   return navigator.bluetooth.requestDevice({
-    filters: [{uuid: [known_service]}]
+    filters: [{services: [known_service]}]
   }).then(device => {
     device.watchAdvertisements();
     device.addEventListener('advertisementreceived', interpretIBeacon);
