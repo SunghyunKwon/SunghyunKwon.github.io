@@ -3,7 +3,8 @@
 <button onclick="onButtonClick()">Click me</button>
 <script>
 async function onButtonClick() {  
-  let options.acceptAllAdvertisements = true;
+  let options = {};
+  options.acceptAllAdvertisements = true;
 
   try {
     log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
