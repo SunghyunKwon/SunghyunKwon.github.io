@@ -23,10 +23,11 @@ function interpretIBeacon(event) {
 }
   
 async function onButtonClick() {  
-navigator.bluetooth.requestLEScan({
+navigator.bluetooth.requestDevice({
   filters: [{services: ['2c8424e4-8a26-4e38-ba3c-777dd897535e']}],
   keepRepeatedDevices: true
-}).then(() => {
+}).then((event) => {
+ console.log(event);
   navigator.bluetooth.addEventListener('advertisementreceived', event => {
     let appleData = event.manufacturerData.get(0x004C);
     if (appleData.byteLength != 23) {
