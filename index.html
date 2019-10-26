@@ -3,6 +3,12 @@
         <button onclick="onButtonClick()">
             Click this button
         </button>
+        <div class="resultBlock">
+            <label>Major: </label>
+            <textarea id="major"></textarea>
+            <label>Minor:</label>
+            <textarea id="minor"></textarea>
+        </div>
         <script>
             function onButtonClick()
             {
@@ -26,6 +32,9 @@
                         console.log('minor: ' + minor);
                         console.log('txPower: ' + txPowerAt1m);
                         console.log('pathLoss: ' + pathLossVs1m);
+                        document.getElementById('major').value = major;
+                        document.getElementById('minor').value = minor;
+
                     })
                 });
             }
