@@ -18,9 +18,9 @@
                     acceptAllAdvertisements: true
                 })
                 .then(() => {
-                    navigator.bluetooth.addEventListener('advertisementreceived', event => {                        
-                        console.log(event);
+                    navigator.bluetooth.addEventListener('advertisementreceived', event => {                                                
                         let appData = event.manufacturerData.get(0x004C);                        
+                        console.log(appData);
                         if (appData === undefined || appData.byteLength != 23) {
                             return;
                         }
