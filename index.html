@@ -21,10 +21,14 @@
                     navigator.bluetooth.addEventListener('advertisementreceived', event => {                                                
                         let appData = event.manufacturerData.get(0x004C);                        
                         console.log(appData);
-                        if (appData === undefined || appData.byteLength != 23) {
+                        if (appData === undefined) {
                             return;
                         }
 
+                        if (appData.byteLength < 23 || appData.byteLength > 31) {
+                            return;
+                        }
+                        
                         let major = appData.getUint16(18, false);
                         let minor = appData.getUint16(20, false);
                         let txPowerAt1m = -appData.getInt8(22);
