@@ -3,6 +3,7 @@
         <button onclick="onButtonClick()">
             Click this button
         </button>
+        <br>
         <div class="resultBlock">
             <label>Major: </label>
             <textarea id="major"></textarea>
@@ -18,7 +19,7 @@
                 })
                 .then(() => {
                     navigator.bluetooth.addEventListener('advertisementreceived', event => {                        
-                        //console.log(event);
+                        console.log(event);
                         let appData = event.manufacturerData.get(0x004C);                        
                         if (appData === undefined || appData.byteLength != 23) {
                             return;
