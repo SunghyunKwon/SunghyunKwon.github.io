@@ -19,17 +19,18 @@ function onButtonClick()
                 return;
             }
 
+            $('#scanning-modal').modal('hide');
+            $('#resultBlock').show();
             let major = appData.getUint16(18, false);
             let minor = appData.getUint16(20, false);
             let txPowerAt1m = -appData.getInt8(22);
-            let pathLossVs1m = txPowerAt1m - event.rssi;
+            let pathLossVs1m = txPowerAt1m - event.rssi;            
             console.log('major: ' + major);
             console.log('minor: ' + minor);
             console.log('txPower: ' + txPowerAt1m);
             console.log('pathLoss: ' + pathLossVs1m);
             document.getElementById('major').value = major;
             document.getElementById('minor').value = minor;
-
         })
     });
 }
