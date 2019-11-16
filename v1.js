@@ -11,6 +11,10 @@ function onButtonClick()
             $('#scanning').show();
             let appData = event.manufacturerData.get(0x004C);                        
             console.log(appData);
+            
+            navigator.bluetooth.removeEventListener('advertisementreceived');
+            
+            
             if (appData === undefined) {
                 return;
             }
