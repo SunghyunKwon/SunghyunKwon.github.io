@@ -44,5 +44,10 @@ $(document).ready(function () {
         onButtonClick();
     });
     
-    
+    $('#close-scanning').click(function (event) {
+        console.log(event);
+        navigator.bluetooth.removeEventListener('advertisementreceived', event => {
+            console.log(event);
+        });
+    })
 })
