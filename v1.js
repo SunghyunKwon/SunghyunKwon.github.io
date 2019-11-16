@@ -12,7 +12,9 @@ function onButtonClick()
             let appData = event.manufacturerData.get(0x004C);                        
             console.log(appData);
             
-            navigator.bluetooth.removeEventListener('advertisementreceived');
+            navigator.bluetooth.removeEventListener('advertisementreceived', event => {
+                console.log(event);
+            });
             
             
             if (appData === undefined) {
