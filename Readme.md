@@ -16,3 +16,18 @@
 1. VM을 이용한 가상환경 구성 (QEMU, Ubuntu Server, One Master, Three Worker Node)
 2. Kubernetes DNS, namespace 간의 통신 방법 
 3. ARGO Workflow Study
+
+## 4차 (2020.11.5)
+### **Kubernetes**
+1. Kubernetes 상에서 노드들의 Log 확인
+2. Kubernetes 상에서 상태 및 config 편집
+
+## 5차 (2020.11.8)
+### **Kubernetes**
+1. Kubernetes rbac 에 대한 이해
+2. Cluster and Namespace Mode에 대한 이해
+
+## 6차 (2020.11.10)
+### **Ansible**
+1. Ansible 설치
+2. Ansible 노드 생성 및 테스트
